@@ -2,7 +2,7 @@ TARGET = git
 CC = clang
 FLAGS = -Wall -Werror -Wextra
 
-SRC = main.c
+SRC = main.c init.c
 SRCDIR = ./srcs/
 SRCS = $(addprefix $(SRCDIR), $(SRC))
 
@@ -10,13 +10,15 @@ OBJ = $(SRC:.c=.o)
 OBJDIR = ./objs/
 OBJS = $(addprefix $(OBJDIR), $(OBJ))
 
+INC = -I ./includes/
+
 all: $(TARGET)
 
 $(TARGET): $(OBJS)
 	$(CC) $(FLAGS) -o $(TARGET) $(OBJS)
 
 $(OBJS):
-	$(CC) $(FLAGS) -c $(SRCS)
+	$(CC) $(FLAGS) $(INC) -c $(SRCS)
 	mv $(OBJ) $(OBJDIR)
 
 clean:

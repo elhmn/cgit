@@ -1,9 +1,10 @@
 #include <stdio.h>
-
+#include "init.h"
 
 int main(int ac, char **av) {
 	(void)ac;
 	(void)av;
-	printf("je suis con");
+
+	init();
 	return (0);
 }
