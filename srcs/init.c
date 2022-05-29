@@ -1,6 +1,7 @@
 #include <stdio.h>
+#include "config.h"
 
-void init() {
-	printf("je suis con");
-	return;
+int init(t_config conf) {
+	print_config(conf);
+	return 0;
 }

@@ -2,7 +2,7 @@ TARGET = git
 CC = clang
 FLAGS = -Wall -Werror -Wextra
 
-SRC = main.c init.c
+SRC = main.c init.c config.c
 SRCDIR = ./srcs/
 SRCS = $(addprefix $(SRCDIR), $(SRC))
 
@@ -11,11 +11,12 @@ OBJDIR = ./objs/
 OBJS = $(addprefix $(OBJDIR), $(OBJ))
 
 INC = -I ./includes/
+SANITIZE = -fsanitize=address,undefined -ferror-limit=10
 
 all: $(TARGET)
 
 $(TARGET): $(OBJS)
-	$(CC) $(FLAGS) -o $(TARGET) $(OBJS)
+	$(CC) $(FLAGS) -o $(TARGET) $(SANITIZE) $(OBJS)
 
 $(OBJS):
 	$(CC) $(FLAGS) $(INC) -c $(SRCS)
