@@ -32,11 +32,11 @@ int set_params(t_options *opts, int ac, char **av) {
 					opts->verbose = atoi(optarg);
 				}
 				break;
-          	case 'f':
+			case 'f':
 				opts->file = optarg;
 				break;
-        	default:
-        	  	break;
+			default:
+				break;
 		}
 	}
 	opts->optind = optind;
